@@ -1,32 +1,25 @@
 var words = ["ground", "control", "to", "major", "tom"];
 
-var resultA = words.map( word => {
-    var modifiedA = word.length;
-    return modifiedA
+
+// Yours will take in two arguments. The first will be an array to map and the second will be a callback function. The function will return a new array based on the results of the callback function.
+
+function map(arr, mapFunction) {
+var result = [];
+    for(var element of arr) {
+         result.push(mapFunction(element));
+    }
+    console.log(result);
+    return result;
+};
+
+map(words, function(word) {
+  return word.length;
 });
 
-var resultB = words.map( word => {
-    var modifiedB = word.toUpperCase();
-    return modifiedB
+map(words, function(word) {
+  return word.toUpperCase();
 });
 
-var resultC = words.map( word => {
-    var modifiedC = word.split('').reverse().join('');
-    return modifiedC
+map(words, function(word) {
+  return word.split('').reverse().join('');
 });
-
-console.log(resultA)
-console.log(resultB)
-console.log(resultC)
-
-// map(words, function(word) {
-//   return word.length;
-// });
-//
-// map(words, function(word) {
-//   return word.toUpperCase();
-// });
-//
-// map(words, function(word) {
-//   return word.split('').reverse().join('');
-// });
